@@ -1,5 +1,10 @@
 # bseries
 
+1. [Short desciption](#short-description)
+1. [Use](#use)
+1. [Example](#example)
+1. [Further use](#further-use)
+
 ## Short description
 This code plots the open-water properties of Wageningen B-Series from data available in Bernitsas , *KT, KQ and efficiency curves for the Wageningen B-series propellers*  Departement of Naval Architecture and Marine Engineering, University of Michigan 1981
 
