@@ -75,8 +75,8 @@ if __name__ == '__main__':
         Kt = thrust_torque_coefficients(J, PoDs[i])[0]
         Kq = thrust_torque_coefficients(J, PoDs[i])[1]
         if Re > 2e6:
-            Kt = Kt + corr_reynolds(J)[0]
-            Kq = Kq + corr_reynolds(J)[1]
+            Kt = Kt + corr_reynolds(J, PoDs[i])[0]
+            Kq = Kq + corr_reynolds(J, PoDs[i])[1]
         eta0 = eta(J,Kt,Kq)
         for k in range(len(Kt)):
             if Kt[k] < 0:
