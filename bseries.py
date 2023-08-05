@@ -38,7 +38,7 @@ def corr_reynolds(J, PoD):
     -0.0000276305*(np.log(Re)-0.301)**2*Z*EAR*J**2 \
     +0.00009545*(np.log(Re)-0.301)*Z*EAR*PoD*J \
     +0.0000032049*(np.log(Re)-0.301)*Z**2*EAR*PoD**3*J
-    delta_kq = -0.000561412 \
+    delta_kq = -0.000591412 \
     +0.00696898*PoD \
     -0.0000666654*Z*PoD**6 \
     +0.0160818*EAR**2 \
