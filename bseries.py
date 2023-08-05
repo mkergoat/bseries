@@ -1,10 +1,9 @@
 """
 Wageningen B-Series Open Water Curves
-""""
+"""
 
 import numpy as np
 import matplotlib.pyplot as plt
-import matplotlib2tikz as pltt
 
 
 def thrust_torque_coefficients(J, PoD):
@@ -23,7 +22,8 @@ def thrust_torque_coefficients(J, PoD):
             Kq += float(l[0])*J**float(l[1])*PoD**float(l[2])*EAR**float(l[3])*Z**float(l[4])
             Kt += float(l[5])*J**float(l[6])*PoD**float(l[7])*EAR**float(l[8])*Z**float(l[9])
     return Kt, Kq
-    
+
+
 def corr_reynolds(J, PoD):
     """
     Computes a correction on thrust and torque coefficients
@@ -52,26 +52,25 @@ def corr_reynolds(J, PoD):
     -0.00400252*(np.log(Re)-0.301)*EAR**2 \
     +0.000220915*(np.log(Re)-0.301)**2*EAR**2
     return delta_kt,delta_kq
-    
+
+
 def eta(J, Kt, Kq):
     """
     Computes the efficiency of the propeller.
     """
     return J * Kt / (2 * np.pi * Kq)
 
+
 if __name__ == '__main__':
     PoD_min = float(input('P/D min =' + '\n'))
     PoD_max = float(input('P/D max =' + '\n'))
-    print('Curves will be computed using a P/D step of 0.1, hence ' + str((PoD_max-PoD_min)/0.1) + ' curves' + '\n')
+    PoDs = np.arange(PoD_min, PoD_max, 0.1)
+    print(f"Curves will be computed using a P/D step of 0.1, hence {len(PoDs)} curves\n")
     EAR = float(input('Ae/A0 =' + '\n'))
     Z = float(input('Z =' + '\n'))
     Re = float(input('Re =' + '\n'))
-    PoDs = np.arange(PoD_min, PoD_max, 0.1)
-    
     J = np.linspace(0, 5, 1000)
-        
     colors = ['r','g','b','c','m','y','k','violet','purple','fuchsia']
-    
     for i in range(len(PoDs)):
         Kt = thrust_torque_coefficients(J, PoDs[i])[0]
         Kq = thrust_torque_coefficients(J, PoDs[i])[1]
